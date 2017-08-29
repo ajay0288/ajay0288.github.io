@@ -5,6 +5,7 @@
 	background-color:red;
 	background-size:cover;
 	box-shadow:5px 10px 10px grey;
+	border-radius:5px;
 }
 .wall{
 	height:200px;
