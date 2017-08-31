@@ -34,8 +34,8 @@
 	box-shadow: 1px 3px 10px grey;
 	transform:rotate(45deg);
 	position: fixed;
-	top:185px;
-	left:465px;
+	top:189px;
+	left:467px;
 }
 .top{
 	height:30px;
@@ -102,8 +102,8 @@
 	box-shadow: 1px 3px 10px grey;
 	transform:rotate(-135deg);
 	position: fixed;
-	top:390px;
-	left:675px;
+	top:395px;
+	left:685px;
 }
 .cout{
 	height:85px;
