@@ -1,4 +1,7 @@
 .circle{
+	position:fixed;
+	top:0px;
+	left:415px;
 	height:500px;
 	width:500px;
 	border:10px solid #bdc3c7;
@@ -6,7 +9,6 @@
 	margin:50px auto;
 	border-radius: 50%;
 	animation:cir 1s linear infinite;
-	z-index:-10;
 }
 
 @keyframes cir{
@@ -31,7 +33,7 @@
 	width:200px;
 	box-shadow: 1px 3px 10px grey;
 	transform:rotate(45deg);
-	position: absolute;
+	position: fixed;
 	top:185px;
 	left:465px;
 }
@@ -40,7 +42,7 @@
 	width:200px;
 	border:5px solid grey;
 	transform:rotate(-90deg);
-	position: absolute;
+	position: fixed;
 	top:140px;
 	left:570px;
 }
@@ -49,7 +51,7 @@
 	width:200px;
 	box-shadow: 1px 3px 10px grey;
 	transform:rotate(135deg);
-	position: absolute;
+	position: fixed;
 	top:185px;
 	left:675px;
 }
@@ -58,7 +60,7 @@
 	width:200px;
 	border:5px solid grey;
 	transform:rotate(-180deg);
-	position: absolute;
+	position: fixed;
 	top:290px;
 	left:423px;
 }
@@ -67,7 +69,7 @@
 	width:200px;
 	border:5px solid grey;
 	transform:rotate(0deg);
-	position: absolute;
+	position: fixed;
 	top:290px;
 	left:720px;
 }
@@ -81,7 +83,7 @@
 	width:200px;
 	box-shadow: 1px 3px 10px grey;
 	transform:rotate(-45deg);
-		position: absolute;
+		position: fixed;
 	top:395px;
 	left:468px;
 }
@@ -90,7 +92,7 @@
 	width:200px;
 	border:5px solid grey;
 	transform:rotate(90deg);
-	position: absolute;
+	position: fixed;
 	top:435px;
 	left:570px;
 }
@@ -99,7 +101,7 @@
 	width:200px;
 	box-shadow: 1px 3px 10px grey;
 	transform:rotate(-135deg);
-	position: absolute;
+	position: fixed;
 	top:390px;
 	left:675px;
 }
@@ -110,7 +112,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:259px;
 	left:628px;
 	animation:cen 1s linear infinite;
@@ -144,7 +146,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:90px;
 	left:555px;
 	animation:cen 1s linear infinite;
@@ -158,7 +160,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:90px;
 	left:695px;
 	animation:cen 1s linear infinite;
@@ -171,7 +173,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:190px;
 	left:455px;
 	animation:cen 1s linear infinite;
@@ -184,7 +186,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:190px;
 	left:800px;
 	animation:cen 1s linear infinite;
@@ -197,7 +199,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:330px;
 	left:800px;
 	animation:cen 1s linear infinite;
@@ -210,7 +212,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:330px;
 	left:455px;
 	animation:cen 1s linear infinite;
@@ -223,7 +225,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:440px;
 	left:555px;
 	animation:cen 1s linear infinite;
@@ -236,7 +238,7 @@
 	border-bottom-color:green;
 	background-color: red;
 	border-radius: 50%;
-	position:absolute;
+	position:fixed;
 	top:440px;
 	left:700px;
 	animation:cen 1s linear infinite;
