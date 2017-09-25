@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                <div class="well well-lg text-center">LOG IN</div>
+                <div class="btn-group col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="lfb">
+                        <input type="radio" name="b" id="lrfb">facebook
+                    </div>
+                    <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="lgmail">
+                        <input type="radio" name="b" id="lrgmail">GMAIL
+                    </div>
+                    <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="lli">
+                        <input type="radio" name="b" id="lrli">LINKED IN
+                    </div>
+                    <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="lgit">
+                        <input type="radio" name="b" id="lrgit">GIT HUB
+                    </div>
+                    <br><br>
+                    <div class="panel panel-default col-lg-12 col-md-12 col-sm-12 col-xs-12" id="login" style="display:none;">
+                        <div class="panel-heading text-center" id="text">FACEBOOK LOGIN</div>
+                        <div class="panel-body">
+                            <form class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="fb">
+                                <div>
+                                  
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="email">email</label>
+                                        <input type="email" class="form-control " id="email" required>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="pass">password</label>
+                                        <input type="text" class="form-control " id="pass" required>
+                                        <br>
+                                    </div>
+                                    </div>
+                                    <center><button class="btn btn-success">submit</button></center>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="well well-lg text-center">SIGN UP</div>
+                <div class="btn-group col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                        <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="sfb">
+                            <input type="radio" name="b" id="srfb">facebook
+                        </div>
+                        <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="sgmail">
+                            <input type="radio" name="b" id="srgmail">gmail
+                        </div>
+                        <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="sli">
+                            <input type="radio" name="b" id="srli">Linked In
+                        </div>
+                        <div class="btn btn-default btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" id="sgit">
+                            <input type="radio" name="b" id="srgit">Github
+                        </div>
+                        <br><br>
+                        <div class="panel panel-default col-lg-12 col-md-12 col-sm-12 col-xs-12" id="signup" style="display:none;">
+                            <div class="panel-heading text-center" id="text1"></div>
+                            <div class="panel-body">
+                                <form class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="fb">
+                                    <div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <label for="fir">firstname</label>
+                                            <input type="text" class="form-control " id="fir">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <label for="las">lastname</label>
+                                            <input type="text" class="form-control " id="las">
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label for="email">email</label>
+                                            <input type="email" class="form-control " id="email" required>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <label for="pass">password</label>
+                                            <input type="text" class="form-control " id="pass" required>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <label for="rpass">confirm password</label>
+                                            <input type="text" class="form-control " id="rpass" required>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label for="address">ADDRESS</label>
+                                            <textarea name="addr" id="" rows="5" class="form-control">
+        
+                                            </textarea><br>
+                                        </div>
+                                        <center><button class="btn btn-success">submit</button></center>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var def=document.getElementById('signupfb');
+        if(def.onclick())
+        {
+            var rad=document.getElementById('signupradfb');
+            rad.checked();
+        }
+    </script>
+</body>
+
+</html>
