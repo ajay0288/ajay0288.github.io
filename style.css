@@ -68,6 +68,9 @@ background-color:grey;
 	display:inline-block;
 	padding:0 35px 0 40px;
 }
+.profile-link>ul>li>a{
+	text-decoration:none;
+}
 .profile-link>ul>li:hover{
 	background-color:white;
 }
