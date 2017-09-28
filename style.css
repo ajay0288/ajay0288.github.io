@@ -67,8 +67,9 @@ background-color:grey;
 	list-style-type: none;
 	display:inline-block;
 	padding:0 35px 0 40px;
+	cursor:pointer;
 }
-.profile-link>ul>li>a{
+a{
 	text-decoration:none;
 }
 .profile-link>ul>li:hover{
