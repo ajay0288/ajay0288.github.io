@@ -1,188 +1,247 @@
 <!DOCTYPE html>
+<html>
+<head>
 <title>document</title>
-<script src=jquery-1.11.3.min.js></script>
-<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js></script>
-<link href=phase1.css rel=stylesheet>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="phase1.css">
 <script>
-    $(document).keydown(function(event) {
-        function escape(s) {
-            Object.defineProperty(console, "foo", {
-                get: function() {
-                    throw "nooo!"
-                }
-            });
-            var code = "with(window.console && console.foo || {}) {\n\t" + s + "\n}";
-            console.log(code);
-            try {
-                console.log(eval(code))
-            } catch (e) {
-                console.log(e)
-            }
-        }
-        return 123 != event.keyCode && ((!event.ctrlKey || !event.shiftKey || 73 != event.keyCode) && void 0)
-    })
-</script>
+$(document).keydown(function (event) {
+    if (event.keyCode == 123) { // Prevent F12
+        return false;
+    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+        return false;
+    }
+    function escape(s) {
+      // Bonus level!
 
-<body oncontextmenu=return!1 onkeydown=return!1 onmousedown=return!1><span class=navbar><li><span id=home></span><a href="">Home</a></li>
-    <input id=education type=checkbox name=same>
-    <label for=education id=edlabel>Education</label>
-    <input id=tutorial type=checkbox name=same>
-    <label for=tutorial id=tulabel>Tutorial</label>
-    <li><span id=acheivements></span><a href="">Acheivements</a></li>
-    <input id=user type=radio name=user>
-    <label for=user id=userlabel>User</label>
-    <table class=tutorial_table>
-        <tr>
-            <td><a href="">Html</a>
-                <td><a href="">Css</a>
-                    <td><a href="">Bootstrap</a>
-                        <tr>
-                            <td><a href="">JavaScript</a>
-                                <td><a href="">AngularJs</a>
-                                    <td><a href="">Jquery</a>
-                                        <tr>
-                                            <td><a href="">ReactJs</a>
-                                                <td><a href="">Foundation</a>
-                                                    <td><a href="">Semantic UI</a>
-                                                        <tr>
-                                                            <td><a href="">NodeJs</a>
-                                                                <td><a href="">ASP.NET</a>
-                                                                    <td><a href="">ADO.NET</a></table>
-    <table class=education_table>
-        <tr>
-            <td><a href="">Machine Learning</a>
-                <td><a href="">Artificial Intelligence</a>
-                    <td><a href="">Internet Of Things</a>
-                        <td><a href="">Cloud Computing</a>
-                            <tr>
-                                <td><a href="">Cyber Security</a>
-                                    <td><a href="">Fundamentals Of Computing</a>
-                                        <td><a href="">Big Data</a>
-                                            <td><a href="">NanoTechnology</a>
-                                                <tr>
-                                                    <td><a href="">Food Technology</a>
-                                                        <td><a href="">Database Manupulation</a>
-                                                            <td><a href="">Scripting Language</a>
-                                                                <td><a href="">Programming Technology</a>
-                                                                    <tr>
-                                                                        <td><a href="">Compiler Design</a>
-                                                                            <td><a href="">Mathematical Approach</a>
-                                                                                <td><a href="">Ethical Hacking</a>
-                                                                                    <td><a href="">Embedded Design</a></table>
-    <table class=user>
-        <input id=login type=radio name=user>
-        <label for=login id=loginlabel>Login</label>
-        <input id=signup type=radio name=user>
-        <label for=signup id=signuplabel>Sign Up</label>
-        <tr class=getlost>
-            <td>User Name :
-                <td>
-                    <input id=userentry>
-                    <tr class=required>
-                        <td>First Name :
-                            <td>
-                                <input id=fname>
-                                <tr class=required>
-                                    <td>Last Name :
-                                        <td>
-                                            <input id=lname>
-                                            <tr class=required>
-                                                <td>Email :
-                                                    <td>
-                                                        <input id=email type=email>
-                                                        <tr class=required>
-                                                            <td>Phone No :
-                                                                <td>
-                                                                    <input id=phno type=number>
-                                                                    <tr class=required>
-                                                                        <td>Gender :
-                                                                            <td>
-                                                                                <input id=m type=radio name=gender>
-                                                                                <label for=m>Male</label>
-                                                                                <input id=f type=radio name=gender>
-                                                                                <label for=f>Female</label>
-                                                                                <tr>
-                                                                                    <td>Password :
-                                                                                        <td>
-                                                                                            <input id=passwordentry type=password>
-                                                                                            <tr class=required>
-                                                                                                <td>Re-Enter Password :
-                                                                                                    <td>
-                                                                                                        <input id=passwordreentry type=password>
-                                                                                                        <tr>
-                                                                                                            <td colspan=2>
-                                                                                                                <input type=button value=submit>
+      Object.defineProperty(console, 'foo', 
+         { get : function() { throw 'nooo!' } });
+
+      var code = 'with(window.console && console.foo || {}) {\n\t'+s+'\n}';
+      console.log(code);
+
+      try {
+        console.log(eval(code));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+});   
+</script>
+</head>
+
+<body oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;">
+    <span class="navbar">
+    <li><span id="home"></span><a href="">Home</a></li>
+    <input type="checkbox" name="same" id="education"><label id="edlabel" for="education">Education</label>
+    <input type="checkbox" name="same" id="tutorial"><label id="tulabel" for="tutorial">Tutorial</label>
+    <li><span id="acheivements"></span><a href="">Acheivements</a></li>
+    <input type="radio" name="user" id="user"><label id="userlabel" for="user">User</label>
+    <table class="tutorial_table">
+    <tr><td><a href="">Html</a></td><td><a href="">Css</a></td><td><a href="">Bootstrap</a></td></tr>
+    <tr><td><a href="">JavaScript</a></td><td><a href="">AngularJs</a></td><td><a href="">Jquery</a></td></tr>
+    <tr><td><a href="">ReactJs</a></td><td><a href="">Foundation</a></td><td><a href="">Semantic UI</a></td></tr>
+    <tr><td><a href="">NodeJs</a></td><td><a href="">ASP.NET</a></td><td><a href="">ADO.NET</a></td></tr>
+    </table>
+    <table class="education_table">
+        <tr><td><a href="">Machine Learning</a></td><td><a href="">Artificial Intelligence</a></td><td><a href="">Internet Of Things</a></td><td><a href="">Cloud Computing</a></td></tr>
+        <tr><td><a href="">Cyber Security</a></td><td><a href="">Fundamentals Of Computing</a></td><td><a href="">Big Data</a></td><td><a href="">NanoTechnology</a></td></tr>
+        <tr><td><a href="">Food Technology</a></td><td><a href="">Database Manupulation</a></td><td><a href="">Scripting Language</a></td><td><a href="">Programming Technology</a></td></tr>
+        <tr><td><a href="">Compiler Design</a></td><td><a href="">Mathematical Approach</a></td><td><a href="">Ethical Hacking</a></td><td><a href="">Embedded Design</a></td></tr>
+    </table>
+    <table class="user">
+        <input type="radio" id="login" name="user"><label for="login" id="loginlabel">Login</label>
+        <input type="radio" id="signup" name="user"><label for="signup" id="signuplabel">Sign Up</label>
+        <tr class="getlost"><td>User Name : </td><td><input type="text" id="userentry"></td></tr>
+        <tr class="required"><td>First Name : </td><td><input type="text" id="fname"></td></tr>
+        <tr class="required"><td>Last Name : </td><td><input type="text" id="lname"></td></tr>
+        <tr class="required"><td>Email : </td><td><input type="email" id="email"></td></tr>
+        <tr class="required"><td>Phone No : </td><td><input type="number" id="phno"></td></tr>
+        <tr class="required"><td>Gender : </td><td><input type="radio" name="gender" id="m"><label for="m">Male</label>  <input type="radio" name="gender" id="f"><label for="f">Female</label></td></tr>
+        <tr><td>Password : </td><td><input type="password" id="passwordentry"></td></tr>
+        <tr class="required"><td>Re-Enter Password : </td><td><input type="password" id="passwordreentry"></td></tr>
+        <tr><td colspan="2"><input type="button" value="submit"></td></tr>
     </table>
     </span>
-    <ul class=sidebar>
-        <li><span id=aboutus></span><a href="">About Us</a>
-            <li><span id=certification></span><a href=#s2>Certification</a>
-                <li><span id=Projects></span><a href=#s3>Projects</a>
-                    <li><span id=Rules></span><a href=#s4>Rules and Regulation</a></ul>
-    <div class=sider>
-        <hr>
-        <hr>
-        <div id=scroll>
-            <center>
-                <h1 id=s1>About Us</h1></center>
-            <hr>
-            <hr>
-            <p id=aboutuspara>Galaxy Science Fiction was an American digest-size science fiction magazine, published from 1950 to 1980. It was founded by World Editions and sold two years later to Robert Guinn, the magazine's printer. Its first editor, H. L. Gold, rapidly made Galaxy the leading science fiction magazine of its time, focusing on stories about social issues rather than technology, including Ray Bradbury's "The Fireman" (later expanded as Fahrenheit 451), Robert A. Heinlein's The Puppet Masters, and Alfred Bester's The Demolished Man. Frederik Pohl, who had been doing most of the production work for some time, took over as editor officially in 1961. Until his departure in 1969, Galaxy had continued success, regularly publishing fiction by writers such as Cordwainer Smith, Jack Vance, Harlan Ellison, and Robert Silverberg. At its peak, Galaxy greatly influenced the science fiction field. Gold brought a "sophisticated intellectual subtlety" to magazine science fiction, according to Pohl. Historian David Kyle suggests that Gold's new direction led to the experimental New Wave, the defining science fiction literary movement of the 1960s.</p><span id=s2><br><br><br><br></span>
-            <hr>
-            <hr>
-            <center>
-                <h1>Certification</h1></center>
-            <hr>
-            <hr>
-            <p id=aboutuspara>One of the most common types of certification in modern society is professional certification, where a person is certified as being able to competently complete a job or task, usually by the passing of an examination and/or the completion of a program of study. Some professional certifications also require that one obtain work experience in a related field before the certification can be awarded. Some professional certifications are valid for a lifetime upon completing all certification requirements. Others expire after a certain period of time and have to be maintained with further education and/or testing. Certifications can differ within a profession by the level or specific area of expertise to which they refer. For example, in the IT Industry there are different certifications available for software tester, project manager, and developer. Also, the Joint Commission on Allied Health Personnel in Ophthalmology offers three certifications in the same profession, but with increasing complexity. Certification does not designate that a person has sufficient knowledge in a subject area, only that they passed the test.[2] Certification does not refer to the state of legally being able to practice or work in a profession. That is licensure. Usually, licensure is administered by a governmental entity for public protection purposes and a professional association administers certification. Licensure and certification are similar in that they both require the demonstration of a certain level of knowledge or ability. Another common type of certification in modern society is product certification. This refers to processes intended to determine if a product meets minimum standards, similar to quality assurance. Different certification systems exist in each country. For example, in Russia it is the GOST R Rostest.</p><span id=s3><br><br><br><br></span>
-            <hr>
-            <hr>
-            <center>
-                <h1>Projects</h1></center>
-            <hr>
-            <hr>
-            <div class=projectcontent>
-                <div class=imgcontent>
-                    <input id=img1 type=radio name=small>
-                    <label for=img1><img height=50px src="1.JPG" width=50px class=img1></label>
-                    <input id=img2 type=radio name=small>
-                    <label for=img2><img height=50px src="2.JPG" width=50px class=img2></label>
-                    <input id=img3 type=radio name=small>
-                    <label for=img3><img height=50px src="3.JPG" width=50px class=img3></label>
-                    <input id=img4 type=radio name=small>
-                    <label for=img4><img height=50px src="4.JPG" width=50px class=img4></label><img height=200px src="1.JPG" width=300px id=main1> <img height=200px src="2.JPG" width=300px id=main2> <img height=200px src="3.JPG" width=300px id=main3> <img height=200px src="4.JPG" width=300px id=main4></div>
-                <div class=animationcontent>
-                    <input id=ani1 type=radio name=ani>
-                    <label for=ani1>Rotate Clockwise</label>
-                    <input id=ani2 type=radio name=ani>
-                    <label for=ani2>Rotate AntiClockwise</label>
-                    <input id=ani3 type=radio name=ani>
-                    <label for=ani3>ScaleBig</label>
-                    <input id=ani4 type=radio name=ani>
-                    <label for=ani4>ScaleSmall</label>
-                    <input id=ani5 type=radio name=ani>
-                    <label for=ani5>SkewX</label>
-                    <input id=ani6 type=radio name=ani>
-                    <label for=ani6>SkewY</label>
-                    <input id=ani7 type=radio name=ani>
-                    <label for=ani7>SkewXY</label>
-                    <input id=ani8 type=radio name=ani>
-                    <label for=ani8>Matrix</label>
-                    <input id=ani9 type=radio name=ani>
-                    <label for=ani9>Stop</label>
-                    <br>
-                    <br>
-                    <br>
-                    <br><img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2> <img height=50px src="3.JPG" width=50px class=ani3> <img height=50px src="4.JPG" width=50px class=ani4> <img height=50px src="1.JPG" width=50px class=ani1> <img height=50px src="2.JPG" width=50px class=ani2></div>
-            </div><span id=s4><br><br><br><br></span>
-            <hr>
-            <hr>
-            <center>
-                <h1>Rules and Regulation</h1></center>
-            <hr>
-            <hr>
-            <p id=aboutuspara>he page "Rules and Regulation" does not exist. You can ask for it to be created, but consider checking the search results below to see whether the topic is already covered. Regulation Regulation is an abstract concept of management of complex systems according to a set of rules and trends. In systems theory, these types of rules exist 9 KB (1,089 words) - 13:02, 10 November 2017 Rules and Regulations Rules and Regulations may refer to: Rules and Regulations (Roll Deep album) Rules and Regulations We've Got a Fuzzbox and We're Gonna Use It Rules and 318 bytes (43 words) - 08:56, 5 February 2015 NASCAR rules and regulations Racing (NASCAR) makes and enforces numerous rules and regulations that transcend all racing series. NASCAR issues a different rule book for each racing 54 KB (7,048 words) - 16:18, 9 December 2017 Dublin Regulation The Dublin Regulation (Regulation No. 604/2013; sometimes the Dublin III Regulation; previously the Dublin II Regulation and Dublin Convention) is a European 20 KB (2,142 words) - 16:59, 25 October 2017 International Regulations for Preventing Collisions at Sea International Regulations for Preventing Collisions at Sea. Although rules for navigating vessels inland may differ, the international rules specify that 66 KB (8,545 words) - 14:11, 14 December 2017 New York Codes, Rules and Regulations Administrative Rules. New York State Register Rules of New York City Law of New York Code of Federal Regulations "Division of Administrative Rules". New 4 KB (84 words) - 20:35, 8 August 2017 Media regulation Media regulation is the control or guidance of mass media by governments and other bodies. This regulation, via law, rules or procedures, can have various 15 KB (1,965 words) - 03:42, 12 December 2017 Shale gas rules and regulations discussing the rules and regulation of shale gas. There are going to be four major topics that surround the issues of the rules and regulations regarding shale 6 KB (799 words) - 19:49, 13 May 2014 Formula One regulations maximum length, other rules set indirect limits on these dimensions, and nearly every aspect of the car carries size regulations; consequently the various 30 KB (3,528 words) - 06:08, 4 October 2017 Flight Compensation Regulation 261/2004 The Flight Compensation Regulation 261/2004 is a regulation in EU law establishing common rules on compensation and assistance to passengers in the event</p><span id=s3><br><br><br><br></span>
-            <hr>
-            <hr>
+<ul class="sidebar">
+    <li><span id="aboutus"></span><a href="">About Us</a></li>
+    <li><span id="certification"></span><a href="#s2">Certification</a></li>
+    <li><span id="Projects"></span><a href="#s3">Projects</a></li>
+    <li><span id="Rules"></span><a href="#s4">Rules and Regulation</a></li>
+</ul>
+<div class="sider">
+    <hr><hr>
+    <div id="scroll">
+        <center><h1 id="s1">About Us</h1></center>
+    <hr><hr>
+    <p id="aboutuspara">ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages</p>
+        <span id="s2"><br><br><br><br></span>
+        <hr><hr>
+        <center><h1>Certification</h1></center>
+    <hr><hr>
+    <p id="aboutuspara">ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages</p>
+        <span id="s3"><br><br><br><br></span>
+        <hr><hr>
+        <center><h1>Projects</h1></center>
+    <hr><hr>
+        <div class="projectcontent">
+            <div class="imgcontent">
+            <input type="radio" id="img1" name="small"><label for="img1"><img src="1.JPG" height="50px" width="50px" class="img1"></label>
+            <input type="radio" id="img2" name="small"><label for="img2"><img src="2.JPG" height="50px" width="50px" class="img2"></label>
+            <input type="radio" id="img3" name="small"><label for="img3"><img src="3.JPG" height="50px" width="50px" class="img3"></label>
+            <input type="radio" id="img4" name="small"><label for="img4"><img src="4.JPG" height="50px" width="50px" class="img4"></label>
+            <img id="main1" src="1.JPG" height="200px" width="300px">
+            <img id="main2" src="2.JPG" height="200px" width="300px">
+            <img id="main3" src="3.JPG" height="200px" width="300px">
+            <img id="main4" src="4.JPG" height="200px" width="300px">
+            </div>
+            <div class="animationcontent">
+            <input type="radio" id="ani1" name="ani"><label for="ani1">Rotate Clockwise</label>
+            <input type="radio" id="ani2" name="ani"><label for="ani2">Rotate AntiClockwise</label>
+            <input type="radio" id="ani3" name="ani"><label for="ani3">ScaleBig</label>
+            <input type="radio" id="ani4" name="ani"><label for="ani4">ScaleSmall</label>
+            <input type="radio" id="ani5" name="ani"><label for="ani5">SkewX</label>
+            <input type="radio" id="ani6" name="ani"><label for="ani6">SkewY</label>
+            <input type="radio" id="ani7" name="ani"><label for="ani7">SkewXY</label>
+            <input type="radio" id="ani8" name="ani"><label for="ani8">Matrix</label>
+            <input type="radio" id="ani9" name="ani"><label for="ani9">Stop</label><br><br><br><br>
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            <img src="3.JPG" height="50px" width="50px" class="ani3">
+            <img src="4.JPG" height="50px" width="50px" class="ani4">
+            <img src="1.JPG" height="50px" width="50px" class="ani1">
+            <img src="2.JPG" height="50px" width="50px" class="ani2">
+            </div>
         </div>
+        <span id="s4"><br><br><br><br></span>
+        <hr><hr>
+        <center><h1>Rules and Regulation</h1></center>
+    <hr><hr>
+    <p id="aboutuspara">ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages ASP.NET is a web devolopement platform which allows devolopers to create dynamic Web Application by using any of the 
+        server side scripting languages</p>
+        <span id="s3"><br><br><br><br></span>
+        <hr><hr>
     </div>
+</div>
+</body>
+</html>
